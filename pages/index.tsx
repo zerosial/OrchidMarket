@@ -14,7 +14,7 @@ const Home: NextPage = (props) => {
       const results = await (
         await fetch(`https://billions-api.nomadcoders.workers.dev/`)
       ).json();
-      setBilionaries(results);
+      setBilionaries(results.slice(0, 40));
     })();
   }, []);
 
@@ -25,16 +25,16 @@ const Home: NextPage = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="grid grid-cols-4 gap-12 mt-8 items-center justify-center text-center">
-        {bilionaries?.slice(0, 40).map((bill) => (
+        {bilionaries?.map((bill) => (
           <div
             className="flex flex-col justify-around items-baseline bg-slate-900 w-72 h-80 border-solid border-2 border-indigo-800 overflow-hidden"
             key={bill.id}
             onClick={() => onClick(bill.id)}
           >
-            <img src={bill.squareImage} className="text-white" />
+            <img src={bill.squareImage} alt="" className="text-white" />
             <div className="text-white text-2xl pl-2">{bill.name}</div>
             <div className="text-white mb-12 pl-2">
-              {parseInt(bill.netWorth / 1000)}Billions / {bill.industries[0]}
+              {parseInt(bill.netWorth / 1000, 10)}Billions / {bill.industries[0]}
             </div>
           </div>
         ))}

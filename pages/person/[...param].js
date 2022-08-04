@@ -13,11 +13,7 @@ export default function Detail(params) {
       ).json();
       setBillId(results);
     })();
-  }, []);
-
-  console.log(params);
-
-  console.log(billId);
+  }, [id]);
 
   return (
     <div className="grid items-center justify-center min-w-screen py-6 bg-slate-800">
@@ -27,10 +23,15 @@ export default function Detail(params) {
       </Head>
       <main className="grid grid-rows-2 items-center justify-center text-center w-screen">
         <div className="flex flex-col gap-2 items-start justify-start bg-slate-900 w-[800px] h-[800px] border-solid border-2 border-indigo-800 overflow-hidden">
-          <img src={billId?.squareImage} width="300px" className="ml-8 mt-20" />
+          <img
+            src={billId?.squareImage}
+            alt=""
+            width="300px"
+            className="ml-8 mt-20"
+          />
           <div className="text-white text-4xl ml-8">{billId?.name}</div>
           <div className="text-white text-2xl ml-8">
-            Networth: {parseInt(billId?.netWorth / 1000)} billions
+            Networth: {parseInt(billId?.netWorth / 1000, 10)} billions
           </div>
           <div className="text-white text-lg ml-8">
             country: {billId?.country}
