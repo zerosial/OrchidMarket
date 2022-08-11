@@ -4,7 +4,7 @@ import Layout from "../../components/layout";
 
 const Profile: NextPage = () => {
   return (
-    <Layout hasTabBar title="나의 캐럿">
+    <Layout hasTabBar title="내 정보">
       <div className="px-4">
         <div className="flex items-center mt-4 space-x-3">
           <div className="w-16 h-16 bg-slate-500 rounded-full" />
@@ -18,7 +18,7 @@ const Profile: NextPage = () => {
         <div className="mt-10 flex justify-around">
           <Link href="/profile/sold">
             <a className="flex flex-col items-center">
-              <div className="w-14 h-14 text-white bg-orange-400 rounded-full flex items-center justify-center">
+              <div className="w-14 h-14 text-white bg-ani-300 hover:bg-ani-500 rounded-full flex items-center justify-center">
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -41,7 +41,7 @@ const Profile: NextPage = () => {
           </Link>
           <Link href="/profile/bought">
             <a className="flex flex-col items-center">
-              <div className="w-14 h-14 text-white bg-orange-400 rounded-full flex items-center justify-center">
+              <div className="w-14 h-14 text-white bg-ani-300 hover:bg-ani-500 rounded-full flex items-center justify-center">
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -64,7 +64,7 @@ const Profile: NextPage = () => {
           </Link>
           <Link href="/profile/loved">
             <a className="flex flex-col items-center">
-              <div className="w-14 h-14 text-white bg-orange-400 rounded-full flex items-center justify-center">
+              <div className="w-14 h-14 text-white bg-ani-300 hover:bg-ani-500 rounded-full flex items-center justify-center">
                 <svg
                   className="w-6 h-6"
                   fill="none"

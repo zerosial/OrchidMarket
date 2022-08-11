@@ -1,12 +1,18 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from "next";
+import client from "../../libs/client";
 
-type Data = {
-  name: string;
-};
-
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse
 ) {
-  res.status(200).json({ name: "John Doe" });
+  await client.user.create({
+    data: {
+      name: "test",
+      email: "song",
+    },
+  });
+
+  res.json({
+    ok: true,
+  });
 }
