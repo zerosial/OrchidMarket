@@ -1,27 +1,39 @@
-# Next.js + Tailwind CSS Example
+# 오키드 마켓 (애니 마켓)
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+## Using
 
-## Deploy your own
+1. Next.js
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+2. TailwindCSS
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+   Utility-First 컨셉을 가진 CSS 프레임워크
+   사이트의 전반적인 디자인을 위해 사용하였다.
 
-## How to use
+3. TypeScript
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+   에러 검출 및 Snippet 사용
+   Prisma가 타입스크립트를 사용하여 백엔드와 연동가능
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+4. Prisma
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+   Mysql , Nosql, mongoodb등 많은 DB등을 불러올 때 같은 형식으로 사용할 수 있는 Node.js + Typescript ORM 이다. (일종의 번역기)
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+5. Plantscale
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+   MySQL-compatible serverless database platform
+   MySQL 을 사용하는 서버리스 DB이다.
+
+## Introduce
+
+Nomad 챌린지인 Next.js편 입니다.
+
+https://orchid-market.vercel.app/
+
+## 프로젝트 단계
+
+TailwindCSS 를 사용하여 기본적인 UI 마크업만 끝난 상태
+
+기본 마크업은 직접 하였고 리펙토링은 니꼬셈의 강의를 도움받았다.
+(각 컴포넌트 분리 , 페이지 분할등)
+
+Prisma + Plantscale 설치 이후 연동과정을 진행중이다.
