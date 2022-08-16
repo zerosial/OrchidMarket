@@ -1,6 +1,11 @@
 import crypto from "crypto-js";
 
-export default function MakeSignature(url, method) {
+interface MakeSignature {
+  url: string;
+  method: string;
+}
+
+export default function MakeSignature({ url, method }: MakeSignature) {
   const date = Date.now().toString();
   const space = " ";
   const newLine = "\n";

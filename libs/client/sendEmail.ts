@@ -7,7 +7,10 @@ export default function sendEmail(email: string, payload: string) {
   const accessKey = process.env.NAVER_ACCESS_KEY;
   const method = "POST";
   const url = "https://mail.apigw.ntruss.com/api/v1/mails";
-  const signature = MakeSignature("/api/v1/mails", method);
+  const signature = MakeSignature({
+    url: "/api/v1/mails",
+    method,
+  });
 
   axios({
     method: method,

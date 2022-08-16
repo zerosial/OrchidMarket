@@ -8,7 +8,10 @@ export default function sendmessage(phone: string, payload: string) {
   const accessKey = process.env.NAVER_ACCESS_KEY;
   const method = "POST";
   const url = `https://sens.apigw.ntruss.com/sms/v2/services/${smsId}/messages`;
-  const signature = MakeSignature(`/sms/v2/services/${smsId}/messages`, method);
+  const signature = MakeSignature({
+    url: `/sms/v2/services/${smsId}/messages`,
+    method,
+  });
 
   axios({
     method: method,
