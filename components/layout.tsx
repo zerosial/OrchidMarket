@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { cls } from "../libs/utils";
+import { cls } from "@libs/client/utils";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 interface LayoutProps {
   title?: string;

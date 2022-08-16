@@ -11,9 +11,9 @@ interface ItemProps {
 export default function Item({
   title,
   price,
-  comments,
   hearts,
   id,
+  comments,
 }: ItemProps) {
   return (
     <Link href={`/items/${id}`}>
