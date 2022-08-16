@@ -35,13 +35,7 @@ export default function sendEmail(email: string, payload: string) {
       individual: true,
       advertising: false,
     },
-  })
-    .then((res: any) => {
-      console.log(res.data);
-    })
-    .catch((err: any) => {
-      console.log(err);
-    });
+  });
 
   return resultCode;
 }

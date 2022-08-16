@@ -29,13 +29,7 @@ export default function sendmessage(phone: string, payload: string) {
       content: `로그인 인증 키는 ${payload} 입니다.`,
       messages: [{ to: `${phone}` }],
     },
-  })
-    .then((res: any) => {
-      console.log(res.data);
-    })
-    .catch((err: any) => {
-      console.log(err);
-    });
+  });
 
   return resultCode;
 }
