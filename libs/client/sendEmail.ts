@@ -1,14 +1,13 @@
 import MakeSignature from "@components/makeSignature";
 const axios = require("axios").default;
 
-export default function sendmessage(phone: string, payload: string) {
+export default function sendEmail(email: string, payload: string) {
   let resultCode = 404;
   const date = Date.now().toString();
-  const smsId = process.env.NAVER_ID;
   const accessKey = process.env.NAVER_ACCESS_KEY;
   const method = "POST";
-  const url = `https://sens.apigw.ntruss.com/sms/v2/services/${smsId}/messages`;
-  const signature = MakeSignature(`/sms/v2/services/${smsId}/messages`, method);
+  const url = "https://mail.apigw.ntruss.com/api/v1/mails";
+  const signature = MakeSignature("/api/v1/mails", method);
 
   axios({
     method: method,
@@ -20,11 +19,18 @@ export default function sendmessage(phone: string, payload: string) {
       "x-ncp-apigw-signature-v2": signature,
     },
     data: {
-      type: "SMS",
-      countryCode: "82",
-      from: `${process.env.MYPHONE}`,
-      content: `로그인 인증 키는 ${payload} 입니다.`,
-      messages: [{ to: `${phone}` }],
+      senderAddress: `${process.env.MYMAIL}`,
+      title: `${email}님 반갑습니다. `,
+      body: `로그인 인증 번호는 ${payload} 입니다.`,
+      recipients: [
+        {
+          address: `${email}`,
+          name: null,
+          type: "R",
+        },
+      ],
+      individual: true,
+      advertising: false,
     },
   })
     .then((res: any) => {
