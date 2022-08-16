@@ -3,6 +3,7 @@ import twilio from "twilio";
 import { NextApiRequest, NextApiResponse } from "next";
 import withHandler, { ResponseType } from "@libs/server/withHandler";
 import client from "@libs/server/client";
+import sendmessage from "@libs/client/sendMessage";
 
 //mail.setApiKey(process.env.SENDGRID_KEY!);
 const twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
@@ -33,12 +34,14 @@ async function handler(
     },
   });
   if (phone) {
-    const message = await twilioClient.messages.create({
+    const message = sendmessage(phone, payload);
+
+    /* const message = await twilioClient.messages.create({
       messagingServiceSid: process.env.TWILIO_MSID,
-      to: process.env.MY_PHONE!,
+      to: "+82" + String(phone).slice(1),
       from: process.env.TWILIO_PHONENUMBER,
-      body: `Your login token is ${payload}.`,
-    });
+      body: `로그인 토큰은 ${payload} 입니다.`,
+    })*/
   } else if (email) {
     /*const email = await mail.send({
       from: "nico@nomadcoders.co",
