@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Button from "@components/button";
 import Input from "@components/input";
@@ -93,7 +93,7 @@ const Enter: NextPage = () => {
                   className={cls(
                     "pb-4 font-medium text-sm border-b-2",
                     method === "phone"
-                      ? " border-ani-500 text-ani-300"
+                      ? "border-ani-500 text-ani-300"
                       : "border-transparent hover:text-gray-400 text-gray-500"
                   )}
                   onClick={onPhoneClick}
