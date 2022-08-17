@@ -12,7 +12,7 @@ async function handler(
   const user = phone ? { phone } : email ? { email } : null;
   if (!user) return res.status(400).json({ ok: false });
   const payload = Math.floor(100000 + Math.random() * 900000) + "";
-  const token = await client.token?.create({
+  await client.token.create({
     data: {
       payload,
       user: {
@@ -28,11 +28,13 @@ async function handler(
       },
     },
   });
+
   if (phone) {
-    const message = sendmessage(phone, payload);
+    sendmessage(phone, payload);
   } else if (email) {
-    const message = sendEmail(email, payload);
+    sendEmail(email, payload);
   }
+
   return res.json({
     ok: true,
   });
